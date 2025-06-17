@@ -1,0 +1,174 @@
+/* === Reset e base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  color: #000;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* === Seção Hero (cabeçalho principal) === */
+.hero {
+  position: relative;
+  padding: 100px 20px 60px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 130px;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background-color: #6a0dad; /* Roxo */
+  z-index: 0;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid white;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+h1 span {
+  display: block;
+  font-weight: 400;
+  font-size: 22px;
+  color: #32CD32; /* Verde limão */
+  margin-top: 4px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 16px;
+  color: #444;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Links sociais === */
+.links {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.links a {
+  color: #6a0dad;
+  font-size: 24px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.links a:hover {
+  color: #32CD32;
+  transform: scale(1.3);
+}
+
+/* === Seção Portfólio === */
+.portfolio {
+  padding: 60px 20px;
+  background-color: #f3e3fb;
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 32px;
+  color: #6a0dad;
+  margin-bottom: 40px;
+}
+
+/* === Grid de projetos === */
+.portfolio .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* === Projeto individual === */
+.projeto {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 3px solid #6a0dad;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(106, 13, 173, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.projeto:hover {
+  box-shadow: 0 6px 16px rgba(50, 205, 50, 0.2);
+}
+
+.projeto img:hover {
+  transform: scale(1.05);
+}
+
+/* === Modal de Imagem === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.close:hover {
+  color: #32CD32;
+}
