@@ -1,33 +1,46 @@
-/* === Reset e base === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --cor-principal: #731cb1;      
+  --cor-degrade-meio: #953ce8;  
+  --cor-degrade-fim: #7300ff;  
+  --cor-secundaria: #32CD32;    
+  --cor-fundo-claro: #d68bfb;  
+  --cor-texto-escuro: #000;
+  --cor-texto-secundario: #f0f0f0; 
+  --cor-fundo-principal: #fff; 
+
+  /* Tipografia */
+  --fonte-principal: 'Segoe UI', sans-serif;
+  --tamanho-titulo-hero: 28px;
+  --tamanho-subtitulo-hero: 22px;
+  --tamanho-titulo-secao: 32px;
+  --tamanho-texto-padrao: 16px;
+
+  /* Espaçamentos e Medidas */
+  --espacamento-padrao: 20px;
+  --margem-pequena: 4px;
+  --margem-media: 25px;
+  --margem-grande: 40px;
+  --raio-borda-padrao: 12px;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: white;
-  color: #000;
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo-principal);
+  color: var(--cor-texto-escuro);
   text-align: center;
   line-height: 1.6;
 }
 
-/* === Seção Hero (cabeçalho principal) === */
 .hero {
   position: relative;
-  padding: 100px 20px 60px;
+  padding: 220px var(--espacamento-padrao) 80px; 
+  background: linear-gradient(135deg, var(--cor-principal), var(--cor-degrade-meio), var(--cor-degrade-fim)); 
+  overflow: hidden; 
+  color: var(--cor-fundo-principal); 
 }
 
 .hero::before {
-  content: '';
-  position: absolute;
-  top: 130px;
-  left: 0;
-  width: 100%;
-  height: 160px;
-  background-color: #6a0dad; /* Roxo */
-  z-index: 0;
+  content: none;
 }
 
 .profile-pic {
@@ -35,89 +48,107 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
-  border: 6px solid white;
-  position: relative;
-  z-index: 1;
+  border: 6px solid var(--cor-secundaria); 
+  box-shadow: 0 0 5px rgba(50, 205, 50, 0.4); 
+  position: absolute; 
+  top: 50px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  z-index: 2; 
+
+  animation: pulse-glow 2s infinite alternate; 
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(50, 205, 50, 0.4); 
+  }
+  100% {
+    box-shadow: 0 0 20px var(--cor-secundaria), 
+                0 0 30px rgba(50, 205, 50, 0.8); 
+  }
 }
 
 h1 {
-  margin-top: 30px;
-  font-size: 28px;
+  margin-top: 50px; 
+  font-size: var(--tamanho-titulo-hero);
   font-weight: bold;
   position: relative;
   z-index: 1;
+  color: var(--cor-fundo-principal); 
 }
 
 h1 span {
   display: block;
   font-weight: 400;
-  font-size: 22px;
-  color: #32CD32; /* Verde limão */
-  margin-top: 4px;
+  font-size: var(--tamanho-subtitulo-hero);
+  color: var(--cor-secundaria); 
+  margin-top: var(--margem-pequena);
 }
 
 .hero p {
   max-width: 600px;
-  margin: 20px auto;
-  font-size: 16px;
-  color: #444;
+  margin: var(--espacamento-padrao) auto;
+  font-size: var(--tamanho-texto-padrao);
+  color: var(--cor-texto-secundario); 
   position: relative;
   z-index: 1;
 }
 
 /* === Links sociais === */
 .links {
-  margin: 25px 0;
+  margin: var(--margem-media) 0;
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: var(--margem-media);
   position: relative;
   z-index: 1;
 }
 
 .links a {
-  color: #6a0dad;
+  color: var(--cor-fundo-principal); 
   font-size: 24px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .links a:hover {
-  color: #32CD32;
+  color: var(--cor-secundaria);
   transform: scale(1.3);
 }
 
 /* === Seção Portfólio === */
 .portfolio {
-  padding: 60px 20px;
-  background-color: #f3e3fb;
+  padding: 60px var(--espacamento-padrao);
+  background-color: var(--cor-fundo-claro); 
   text-align: center;
 }
 
 .portfolio h2 {
-  font-size: 32px;
-  color: #6a0dad;
-  margin-bottom: 40px;
+  font-size: var(--tamanho-titulo-secao);
+  color: var(--cor-principal);
+  margin-bottom: var(--margem-grande);
+  font-weight: bold;
 }
 
 /* === Grid de projetos === */
 .portfolio .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  gap: var(--margem-media);
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* === Projeto individual === */
+/* === Projeto individual - Melhorias Visuais === */
 .projeto {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  border-radius: 12px;
-  border: 3px solid #6a0dad;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(106, 13, 173, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--raio-borda-padrao);
+  border: 4px solid var(--cor-secundaria); 
+  background: var(--cor-fundo-principal);
+  box-shadow: 0 4px 10px rgba(106, 13, 173, 0.2); 
+  transition: all 0.3s ease-in-out; 
 }
 
 .projeto img {
@@ -129,14 +160,16 @@ h1 span {
 }
 
 .projeto:hover {
-  box-shadow: 0 6px 16px rgba(50, 205, 50, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(106, 13, 173, 0.35); 
+  border-color: var(--cor-principal);
 }
 
 .projeto img:hover {
   transform: scale(1.05);
 }
 
-/* === Modal de Imagem === */
+/* === Modal de Imagem (mantido) === */
 .modal {
   display: none;
   position: fixed;
@@ -155,7 +188,7 @@ h1 span {
   display: block;
   max-width: 90%;
   max-height: 80vh;
-  border-radius: 12px;
+  border-radius: var(--raio-borda-padrao);
 }
 
 .close {
@@ -170,5 +203,5 @@ h1 span {
 }
 
 .close:hover {
-  color: #32CD32;
+  color: var(--cor-secundaria);
 }
